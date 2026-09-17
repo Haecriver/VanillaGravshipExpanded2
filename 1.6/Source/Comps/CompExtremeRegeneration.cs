@@ -2,6 +2,7 @@
 using Verse;
 using System.Collections.Generic;
 using System.Linq;
+using VanillaGravshipExpanded;
 
 namespace VanillaGravshipExpanded2
 {
@@ -31,7 +32,7 @@ namespace VanillaGravshipExpanded2
                 {
                     if (pawn.health != null)
                     {
-                        if (pawn.IsBurning())
+                        if (pawn.IsBurning() || pawn.IsAstroBurning())
                         {
                             regenerationActive = false;
                             SwapHediff(pawn, false);
