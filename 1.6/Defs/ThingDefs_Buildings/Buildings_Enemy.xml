@@ -127,6 +127,12 @@
             <ComponentIndustrial>2</ComponentIndustrial>
             <Steel>30</Steel>
         </costList>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>25</GravlitePanel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+            <Steel>30</Steel>
+        </killedLeavings>
         <comps>
             <li Class="CompProperties_Glower">
                 <glowRadius>5</glowRadius>
@@ -188,6 +194,12 @@
             <ComponentSpacer>4</ComponentSpacer>
             <Steel>90</Steel>
         </costList>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>60</GravlitePanel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Steel>90</Steel>
+        </killedLeavings>
         <comps>
             <li Class="CompProperties_Glower">
                 <glowRadius>8</glowRadius>
@@ -250,6 +262,12 @@
             <ComponentSpacer>8</ComponentSpacer>
             <Plasteel>100</Plasteel>
         </costList>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>100</GravlitePanel>
+            <ComponentSpacer>8</ComponentSpacer>
+            <Plasteel>100</Plasteel>
+        </killedLeavings>
         <comps>
             <li Class="CompProperties_Glower">
                 <glowRadius>12</glowRadius>
@@ -312,6 +330,12 @@
             <ComponentSpacer>12</ComponentSpacer>
             <Plasteel>150</Plasteel>
         </costList>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>200</GravlitePanel>
+            <ComponentSpacer>12</ComponentSpacer>
+            <Plasteel>150</Plasteel>
+        </killedLeavings>
         <comps>
             <li Class="CompProperties_Glower">
                 <glowRadius>15</glowRadius>
@@ -1695,6 +1719,11 @@
      		 <claimable>false</claimable>
 			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
 		</building>
+        <killedLeavings>
+            <Gravcore>1</Gravcore>
+            <GravlitePanel>80</GravlitePanel>
+            <ChunkSlagSteel>2</ChunkSlagSteel>
+        </killedLeavings>
         <costList>
             <Gravcore>1</Gravcore>
             <GravlitePanel>80</GravlitePanel>
@@ -1753,6 +1782,13 @@
             <ComponentSpacer>10</ComponentSpacer>
             <Gravcore>1</Gravcore>
         </costList>
+        <killedLeavings>
+            <Steel>700</Steel>
+            <GravlitePanel>200</GravlitePanel>
+            <ComponentIndustrial>30</ComponentIndustrial>
+            <ComponentSpacer>10</ComponentSpacer>
+            <Gravcore>1</Gravcore>
+        </killedLeavings>
         <resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
         <comps>
             <li Class="VanillaGravshipExpanded.CompProperties_WorldArtillery">
