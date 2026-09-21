@@ -82,12 +82,6 @@
 				</powerGauge>
 				<transmitsPower>true</transmitsPower>
 			</li>
-			<li Class="CompProperties_Stunnable">
-				<useLargeEMPEffecter>true</useLargeEMPEffecter>
-				<affectedDamageDefs>
-					<li>EMP</li>
-				</affectedDamageDefs>
-			</li>
 		</comps>
 		<uiOrder>2201</uiOrder>
 		<modExtensions>
@@ -191,12 +185,6 @@
 				</powerGauge>
 				<transmitsPower>true</transmitsPower>
 			</li>
-			<li Class="CompProperties_Stunnable">
-				<useLargeEMPEffecter>true</useLargeEMPEffecter>
-				<affectedDamageDefs>
-					<li>EMP</li>
-				</affectedDamageDefs>
-			</li>
 		</comps>
 		<uiOrder>2206</uiOrder>
 		<modExtensions>
@@ -299,12 +287,6 @@
 					<sizeWest>(0.9,0.3)</sizeWest>
 				</powerGauge>
 				<transmitsPower>true</transmitsPower>
-			</li>
-			<li Class="CompProperties_Stunnable">
-				<useLargeEMPEffecter>true</useLargeEMPEffecter>
-				<affectedDamageDefs>
-					<li>EMP</li>
-				</affectedDamageDefs>
 			</li>
 		</comps>
 		<uiOrder>2211</uiOrder>
