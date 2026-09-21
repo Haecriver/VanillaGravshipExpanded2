@@ -42,6 +42,7 @@
 			<isInert>true</isInert>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineableScatterCommonality>0</mineableScatterCommonality>
+      <claimable>false</claimable>
 		</building>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<blockLight>true</blockLight>
@@ -94,6 +95,7 @@
 			<isInert>true</isInert>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineableScatterCommonality>0</mineableScatterCommonality>
+      <claimable>false</claimable>
 		</building>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<blockLight>true</blockLight>
@@ -146,6 +148,7 @@
 			<deconstructible>false</deconstructible>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineableScatterCommonality>0</mineableScatterCommonality>
+      <claimable>false</claimable>
 		</building>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<blockLight>true</blockLight>
@@ -198,6 +201,7 @@
 			<deconstructible>false</deconstructible>
 			<mineablePreventMeteorite>true</mineablePreventMeteorite>
 			<mineableScatterCommonality>0</mineableScatterCommonality>
+      <claimable>false</claimable>
 		</building>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<blockLight>true</blockLight>
