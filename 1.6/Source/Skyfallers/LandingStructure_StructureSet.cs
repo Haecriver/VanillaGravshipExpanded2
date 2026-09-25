@@ -20,6 +20,9 @@ namespace VanillaGravshipExpanded2
 
         protected Dictionary<Pawn, IntVec3> pawnPositions = new Dictionary<Pawn, IntVec3>();
 
+        private static List<PrefabDef> tmpPrefabList = [];
+        private static List<KCSG.StructureLayoutDef> tmpKcsgList = [];
+
         protected override IEnumerator CaptureGravshipCoroutine()
         {
             coroutineStarted = true;
@@ -142,7 +145,9 @@ namespace VanillaGravshipExpanded2
         {
             foreach (var pawn in pawnPositions.Keys)
             {
-                pawn.DeSpawn();
+                // On load, pawns may not be spawned
+                if (pawn.Spawned)
+                    pawn.DeSpawn();
             }
         }
 
@@ -193,13 +198,57 @@ namespace VanillaGravshipExpanded2
         {
             base.ExposeData();
             Scribe_Defs.Look(ref structureSetDef, "structureSetDef");
-            Scribe_Collections.Look(ref selectedDefs, "selectedDefs", LookMode.Def);
             Scribe_Values.Look(ref shipRotation, "shipRotation");
             Scribe_Values.Look(ref ticksToImpact, "ticksToImpact");
             Scribe_Values.Look(ref ticksToImpactMax, "ticksToImpactMax");
             Scribe_References.Look(ref shipFaction, "shipFaction");
             Scribe_Values.Look(ref pawnCountRange, "pawnCountRange");
             Scribe_Collections.Look(ref pawnPositions, "pawnPositions", LookMode.Deep, LookMode.Value);
+
+            // We can't save a Def, or List<Def> - we need to specify a particular def type.
+            // Issue - we can't use List<PrefabDef>, since the original method support PrefabDef and KCSG.StructureLayoutDef.
+            // Solution - save and load a separate list for each of those. Alternatively, we could make
+            // scribe class/methods in VE for all defs supported by the StructureSetGenerator.
+            // Defs only use Saving and LoadingVars.
+            if (Scribe.mode == LoadSaveMode.Saving && !selectedDefs.NullOrEmpty())
+            {
+                if (tmpPrefabList == null)
+                    tmpPrefabList = [];
+                else
+                    tmpPrefabList.Clear();
+                if (tmpKcsgList == null)
+                    tmpKcsgList = [];
+                else
+                    tmpKcsgList.Clear();
+
+                for (var i = 0; i < selectedDefs.Count; i++)
+                {
+                    if (selectedDefs[i] is PrefabDef prefab)
+                        tmpPrefabList.Add(prefab);
+                    else if (selectedDefs[i] is KCSG.StructureLayoutDef kcsg)
+                        tmpKcsgList.Add(kcsg);
+                }
+
+                Scribe_Collections.Look(ref tmpPrefabList, "selectedDefs", LookMode.Def);
+                Scribe_Collections.Look(ref tmpKcsgList, "selectedDefsKcsg", LookMode.Def);
+
+                tmpPrefabList.Clear();
+                tmpKcsgList.Clear();
+            }
+            else if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                Scribe_Collections.Look(ref tmpPrefabList, "selectedDefs", LookMode.Def);
+                Scribe_Collections.Look(ref tmpKcsgList, "selectedDefsKcsg", LookMode.Def);
+
+                if (selectedDefs == null)
+                    selectedDefs = [];
+                else
+                    selectedDefs.Clear();
+                if (tmpPrefabList != null)
+                    selectedDefs.AddRange(tmpPrefabList);
+                if (tmpKcsgList != null)
+                    selectedDefs.AddRange(tmpKcsgList);
+            }
         }
     }
 }
