@@ -737,7 +737,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<projectile>
-			<damageDef>BeamBypassShields</damageDef>
+			<damageDef>VGE_AnticraftBeamBypassShields</damageDef>
 			<damageAmountBase>16</damageAmountBase>
 			<flyOverhead>true</flyOverhead>
 			<beamMoteDef>VGE_Mote_BeamRepeaterLaser</beamMoteDef>
