@@ -45,4 +45,11 @@
             <designationCategory>VGE_Designer</designationCategory>
         </value>
     </Operation>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/TerrainDef[defName="OrbitalPlatform"]</xpath>
+        <value>
+            <li Class="VanillaGravshipExpanded2.EnemyShipTerrainExtension" />
+        </value>
+    </Operation>
 </Patch>
