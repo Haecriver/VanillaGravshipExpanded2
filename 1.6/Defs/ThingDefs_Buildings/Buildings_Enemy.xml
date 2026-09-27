@@ -20,6 +20,7 @@
         <drawHighlight>true</drawHighlight>
         <drawHighlightOnlyForHostile>true</drawHighlightOnlyForHostile>
         <rotatable>false</rotatable>
+        <fillPercent>1</fillPercent>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
             <playTargetAcquiredSound>false</playTargetAcquiredSound>
@@ -550,6 +551,7 @@
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <passability>PassThroughOnly</passability>
         <rotatable>false</rotatable>
+        <fillPercent>0.4</fillPercent>
         <costList>
             <Steel>80</Steel>
             <ComponentIndustrial>2</ComponentIndustrial>
@@ -591,6 +593,7 @@
         <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <rotatable>true</rotatable>
         <passability>PassThroughOnly</passability>
+        <fillPercent>0.4</fillPercent>
         <costList>
             <Steel>100</Steel>
             <ComponentSpacer>1</ComponentSpacer>
