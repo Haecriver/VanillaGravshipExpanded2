@@ -24,12 +24,23 @@ namespace VanillaGravshipExpanded2
             }
             if (pawn.skills != null && !pawn.skills.GetSkill(SkillDefOf.Construction).TotallyDisabled)
             {
-                var building = (Building)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.Touch, TraverseParms.For(pawn), 30f, x => x.Faction == pawn.Faction && x.HitPoints < x.MaxHitPoints && pawn.CanReserve(x));
+                var building = (Building)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.Touch, TraverseParms.For(pawn), 30f, x => x.Faction == pawn.Faction && x.HitPoints < x.MaxHitPoints && pawn.CanReserve(x) && IsOnEnemyShipTerrain(x));
                 if (building != null)
                 {
                     __result = JobMaker.MakeJob(JobDefOf.Repair, building);
                 }
             }
+        }
+
+        private static bool IsOnEnemyShipTerrain(Thing building)
+        {
+            var terrainGrid = building.Map.terrainGrid;
+            foreach (var cell in building.OccupiedRect())
+            {
+                if (terrainGrid.TerrainAt(cell) is TerrainDef terrain && terrain.HasModExtension<EnemyShipTerrainExtension>()) return true;
+                if (terrainGrid.FoundationAt(cell) is TerrainDef foundation && foundation.HasModExtension<EnemyShipTerrainExtension>()) return true;
+            }
+            return false;
         }
     }
 }
