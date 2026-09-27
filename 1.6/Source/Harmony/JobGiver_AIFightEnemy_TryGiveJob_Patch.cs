@@ -24,7 +24,7 @@ namespace VanillaGravshipExpanded2
             }
             if (pawn.skills != null && !pawn.skills.GetSkill(SkillDefOf.Construction).TotallyDisabled)
             {
-                var building = (Building)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.Touch, TraverseParms.For(pawn), 30f, x => x.Faction == pawn.Faction && x.HitPoints < x.MaxHitPoints && pawn.CanReserve(x) && IsOnEnemyShipTerrain(x));
+                var building = (Building)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.Touch, TraverseParms.For(pawn), 30f, x => x.Faction == pawn.Faction && x.def.useHitPoints && x.HitPoints < x.MaxHitPoints && pawn.CanReserve(x) && IsOnEnemyShipTerrain(x));
                 if (building != null)
                 {
                     __result = JobMaker.MakeJob(JobDefOf.Repair, building);
