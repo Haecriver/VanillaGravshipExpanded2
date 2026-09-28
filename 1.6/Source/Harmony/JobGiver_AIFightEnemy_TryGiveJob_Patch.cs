@@ -16,8 +16,10 @@ namespace VanillaGravshipExpanded2
 
         static JobGiver_AIFightEnemy_TryGiveJob_Patch()
         {
+            // Check in ExecuteWhenFinished in case DefDatabase isn't initialized yet
             LongEventHandler.ExecuteWhenFinished(() =>
             {
+                // Set up a list of all the defs that can be used as enemy terminals
                 for (var i = 0; i < DefDatabase<ThingDef>.AllDefsListForReading.Count; i++)
                 {
                     var def = DefDatabase<ThingDef>.AllDefsListForReading[i];
@@ -36,17 +38,23 @@ namespace VanillaGravshipExpanded2
 
             if (pawn.skills != null && !pawn.skills.GetSkill(SkillDefOf.Intellectual).TotallyDisabled)
             {
+                // Initial state - max distance (we always take lower values)
                 var distanceSquared = float.MaxValue;
                 Thing terminal = null;
 
+                // Go through all the defs
                 for (var i = 0; i < EnemyTerminals.Count; i++)
                 {
+                    // Grab a list of things
                     var thing = pawn.Map.listerThings.ThingsOfDef(EnemyTerminals[i])
+                        // Order by closest first (use squared distance since it works here, and is faster since we skip sqrt call)
                         .OrderBy(x => pawn.Position.DistanceToSquared(x.Position))
+                        // Grab the first valid building matching our conditions
                         .FirstOrDefault(x => x.Faction == pawn.Faction && pawn.Position.DistanceToSquared(x.Position) < 30f * 30f && pawn.CanReserve(x) && x.TryGetComp<CompMannable>() is CompMannable m && !m.MannedNow && pawn.CanReach(x, PathEndMode.InteractionCell, Danger.Deadly));
 
                     if (thing != null)
                     {
+                        // Check if the newly found stations is closer than the previous one
                         var dist = pawn.Position.DistanceToSquared(thing.Position);
                         if (dist < distanceSquared)
                         {
@@ -66,7 +74,9 @@ namespace VanillaGravshipExpanded2
             if (pawn.skills != null && !pawn.skills.GetSkill(SkillDefOf.Construction).TotallyDisabled)
             {
                 var building = pawn.Map.listerBuildingsRepairable.HashSetFor(pawn.Faction)
+                    // Order by closest first (use squared distance since it works here, and is faster since we skip sqrt call)
                     .OrderBy(x => pawn.Position.DistanceToSquared(x.Position))
+                    // Grab the first valid building matching our conditions
                     .FirstOrDefault(x => x.Faction == pawn.Faction && pawn.Position.DistanceToSquared(x.Position) < 30f * 30f && x.def.useHitPoints && x.HitPoints < x.MaxHitPoints && pawn.CanReserve(x) && IsOnEnemyShipTerrain(x) && pawn.CanReach(x, PathEndMode.Touch, Danger.Deadly));
                 if (building != null)
                 {
