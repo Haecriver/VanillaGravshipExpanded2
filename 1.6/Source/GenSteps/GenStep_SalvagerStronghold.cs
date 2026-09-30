@@ -43,7 +43,7 @@ namespace VanillaGravshipExpanded2
                 var kind = Faction.OfSalvagers.def.pawnGroupMakers.SelectMany(gm => gm.options).RandomElementByWeight(opt => opt.selectionWeight).kind;
                 pawns.Add(PawnGenerator.GeneratePawn(kind, Faction.OfSalvagers));
             }
-            LordMaker.MakeNewLord(Faction.OfSalvagers, new LordJob_DefendBase(Faction.OfSalvagers, map.Center, 25000), map, pawns);
+            LordMaker.MakeNewLord(Faction.OfSalvagers, new LordJob_DefendBase_SpaceCombat(Faction.OfSalvagers, map.Center, 25000), map, pawns);
             foreach (var pawn in pawns) GenSpawn.Spawn(pawn, cells.RandomElement(), map);
             ScatterMiningProps(map, parms, rects);
         }

@@ -89,6 +89,7 @@ namespace VanillaGravshipExpanded2
 		public static JobDef VGE_CallSalvagerStation;
 		public static JobDef VGE_SpacePrisonEscape_UseEscapePod;
 		public static DutyDef VGE_SpacePrisonerEscape;
+		public static DutyDef VGE_DefendBase_SpaceCombat;
 		public static FleckDef BlastEMP;
 		public static ThingDef OrbitalTargeterBombardment;
 		public static ThingDef VGE_Compressed_Vacstone;

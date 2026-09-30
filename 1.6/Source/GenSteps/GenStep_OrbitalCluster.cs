@@ -41,7 +41,7 @@ namespace VanillaGravshipExpanded2
 
             var pawns = PawnGroupMakerUtility.GeneratePawns(groupParms).ToList();
 
-            LordMaker.MakeNewLord(Faction.OfMechanoids, new LordJob_DefendBase(Faction.OfMechanoids, map.Center, 25000), map, pawns);
+            LordMaker.MakeNewLord(Faction.OfMechanoids, new LordJob_DefendBase_SpaceCombat(Faction.OfMechanoids, map.Center, 25000), map, pawns);
             foreach (var pawn in pawns)
             {
                 if (cells.TryRandomElement(out var cell)) GenSpawn.Spawn(pawn, cell, map);

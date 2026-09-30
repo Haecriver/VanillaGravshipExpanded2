@@ -160,7 +160,7 @@ namespace VanillaGravshipExpanded2
             }
             if (pawnPositions.Count > 0)
             {
-                LordMaker.MakeNewLord(shipFaction, new LordJob_DefendBase(shipFaction, map.Center, 25000), map, pawnPositions.Keys.ToList());
+                LordMaker.MakeNewLord(shipFaction, new LordJob_DefendBase_SpaceCombat(shipFaction, map.Center, 25000), map, pawnPositions.Keys.ToList());
             }
         }
 
