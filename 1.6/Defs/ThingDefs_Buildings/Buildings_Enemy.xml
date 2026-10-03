@@ -1401,6 +1401,9 @@
                 <warmupPulseSolidTime>1</warmupPulseSolidTime>
                 <warmupPulseFadeOutTime>1</warmupPulseFadeOutTime>
             </li>
+            <li Class="VanillaGravshipExpanded2.CompProperties_EnemyJammer">
+                <jammingRange>55.9</jammingRange>
+            </li>
         </comps>
 
     </ThingDef>

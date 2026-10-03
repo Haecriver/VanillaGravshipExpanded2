@@ -20,21 +20,28 @@ namespace VanillaGravshipExpanded2
         {
             if (cell.IsValid && map != null)
             {
-                foreach (var thing in map.listerBuildings.allBuildingsNonColonist)
+                for (var i = 0; i < CompProperties_EnemyJammer.EnemySignalJammerDefs.Count; i++)
                 {
-                    if (thing.def == InternalDefOf.VGE_EnemySignalJammer)
+                    var things = map.listerThings.ThingsOfDef(CompProperties_EnemyJammer.EnemySignalJammerDefs[i]);
+                    foreach (var t in things)
                     {
-                        if (thing.TryGetComp<CompPowerTrader>().PowerOn && thing.Position.DistanceTo(cell) <= 55.9f)
-                        {
-                            return true;
-                        }
-                    }
-                    else if (thing.def == InternalDefOf.VGE_MechanoidSignalJammer)
-                    {
-                        if (thing.Position.DistanceTo(cell) <= 55.9f && !thing.GetComp<CompStunnable>().StunHandler.Stunned)
-                        {
-                            return true;
-                        }
+                        if (t is not ThingWithComps thing)
+                            continue;
+
+                        var jammer = thing.GetComp<CompEnemyJammer>();
+                        // Range check
+                        if (thing.Position.DistanceToSquared(cell) > jammer.Props.jammingRange * jammer.Props.jammingRange)
+                            continue;
+
+                        // Check if power comp not null and power is off
+                        if (thing.GetComp<CompPowerTrader>()?.PowerOn == false)
+                            continue;
+
+                        // Check if stunnable comp not null and thing is stunned
+                        if (thing.GetComp<CompStunnable>()?.StunHandler.Stunned == true)
+                            continue;
+
+                        return true;
                     }
                 }
             }

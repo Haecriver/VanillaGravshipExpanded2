@@ -593,6 +593,9 @@
                     <li>EMP</li>
                 </affectedDamageDefs>
             </li>
+            <li Class="VanillaGravshipExpanded2.CompProperties_EnemyJammer">
+                <jammingRange>55.9</jammingRange>
+            </li>
         </comps>
         <killedLeavings>
             <GravlitePanel>40</GravlitePanel>
