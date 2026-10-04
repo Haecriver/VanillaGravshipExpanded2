@@ -2801,9 +2801,6 @@
         <li>(29,4,29,4)</li>
       </rects>
     </AncientBox_ComponentIndustrial>
-    <VGE_Exoworm>
-      <position>(7, 0, 2)</position>
-    </VGE_Exoworm>
     <Filth_BlastMark>
       <position>(23, 0, 19)</position>
     </Filth_BlastMark>
@@ -2874,6 +2871,12 @@
           </rects>
         </li>
       </roofs>
+      <pawns>
+        <li>
+          <kind>VGE_Exoworm</kind>
+          <position>(7, 0, 2)</position>
+        </li>
+      </pawns>
     </li>
   </modExtensions>
 </PrefabDef>
@@ -3101,9 +3104,6 @@
         <li>(14,19,14,19)</li>
       </rects>
     </AncientBarrel>
-    <VGE_Exoleech>
-      <position>(17, 0, 2)</position>
-    </VGE_Exoleech>
   </things>
   <terrain>
     <VGE_AncientOrbitalPlatform>
@@ -3187,6 +3187,12 @@
           </rects>
         </li>
       </roofs>
+      <pawns>
+        <li>
+          <kind>VGE_Exoleech</kind>
+          <position>(17, 0, 2)</position>
+        </li>
+      </pawns>
     </li>
   </modExtensions>
 </PrefabDef>
@@ -8003,9 +8009,6 @@
         <li>(32,6,32,6)</li>
       </rects>
     </AncientBox_ComponentIndustrial>
-    <VGE_Exoworm>
-      <position>(17, 0, 3)</position>
-    </VGE_Exoworm>
     <Filth_BlastMark>
       <position>(15, 0, 11)</position>
     </Filth_BlastMark>
@@ -8093,6 +8096,12 @@
           </rects>
         </li>
       </roofs>
+      <pawns>
+        <li>
+          <kind>VGE_Exoworm</kind>
+          <position>(17, 0, 3)</position>
+        </li>
+      </pawns>
     </li>
   </modExtensions>
 </PrefabDef>
@@ -10496,15 +10505,6 @@
         <li>(19,25,19,25)</li>
       </rects>
     </AncientSecurityTurret>
-    <VGE_Exoworm>
-      <rects>
-        <li>(23,11,23,11)</li>
-        <li>(11,23,11,23)</li>
-      </rects>
-    </VGE_Exoworm>
-    <VGE_Exopede>
-      <position>(11, 0, 23)</position>
-    </VGE_Exopede>
   </things>
   <terrain>
     <VGE_AncientOrbitalPlatform>
@@ -10548,6 +10548,20 @@
           </rects>
         </li>
       </roofs>
+      <pawns>
+        <li>
+          <kind>VGE_Exoworm</kind>
+          <position>(23, 0, 11)</position>
+        </li>
+        <li>
+          <kind>VGE_Exoworm</kind>
+          <position>(11, 0, 23)</position>
+        </li>
+        <li>
+          <kind>VGE_Exopede</kind>
+          <position>(11, 0, 23)</position>
+        </li>
+      </pawns>
     </li>
   </modExtensions>
 </PrefabDef>
