@@ -29,7 +29,7 @@ namespace VanillaGravshipExpanded2
             }
             if (pawnPositions.Count > 0)
             {
-                LordMaker.MakeNewLord(shipFaction, new LordJob_AssaultColony(shipFaction, false, false), map, pawnPositions.Keys.ToList());
+                LordMaker.MakeNewLord(shipFaction, new LordJob_AssaultColony(shipFaction, false, false, false, false, false), map, pawnPositions.Keys.ToList());
             }
         }
 

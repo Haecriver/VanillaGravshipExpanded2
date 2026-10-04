@@ -18,6 +18,12 @@
       <drawSize>(3, 3)</drawSize>
     </value>
   </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="SignalJammer"]</xpath>
+    <value>
+      <tickerType>Normal</tickerType>
+    </value>
+  </Operation>
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="SignalJammer"]/comps/li[@Class="CompProperties_GravshipFacility"]</xpath>
     <value>
