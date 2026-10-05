@@ -14,6 +14,10 @@
           <targetKeepRadius>30</targetKeepRadius>
           <needLOSToAcquireNonPawnTargets>true</needLOSToAcquireNonPawnTargets>
         </li>
+        <!-- Find closest fire/astrofire (in max dist) and fight it. -->
+        <li Class="VanillaGravshipExpanded2.JobGiver_AIFightFires">
+          <maxDist>15</maxDist>
+        </li>
         <li Class="VanillaGravshipExpanded2.JobGiver_AIManTerminal">
           <maxDist>9999</maxDist>
         </li>
